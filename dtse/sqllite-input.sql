@@ -10,19 +10,19 @@ CREATE TABLE customers (
     
 INSERT INTO customers (customer_id,last_name,first_name, referred_by_id)
 VALUES  (1,'John','White',''),
-		(2,'Sarah','Green',''),
+	(2,'Sarah','Green',''),
        	(3,'George','Black',''),
-		(4,'Mark','Koon',''),
-		(5,'Tom','Gone',''),
-       	(6,'Ezra','Beck',''),
-		(7,'Jan','Wick',2),
-		(8,'Petr','Lame',''),
+	(4,'Mark','Koon',''),
+	(5,'Tom','Gone',''),
+       	(6,'Ezra','Beck','')
+	(7,'Jan','Wick',2),
+	(8,'Petr','Lame',''),
        	(9,'Lucy','Can',''),
-		(10,'Karl','Opel',1),
-		(11,'Ron','Varon',10),
+	(10,'Karl','Opel',1),
+	(11,'Ron','Varon',10),
        	(12,'Harry','Bond',''),
-		(13,'Paul','Kong',''),
-		(14,'Shaun','King',3),
+	(13,'Paul','Kong',''),
+	(14,'Shaun','King',3),
        	(15,'Elisabeth','Yellow','');
         
 CREATE TABLE contacts (
@@ -35,7 +35,7 @@ CREATE TABLE contacts (
       
 INSERT INTO contacts (customer_id,address,city,phone_number,email)
 VALUES  (1,'3525  Fort Street','COLUMBUS','2532326578','JW@email.com'),
-		(2,'3924  Cooks Mine Road','Albuquerque','5057657670','SarahG@email.com'),
+	(2,'3924  Cooks Mine Road','Albuquerque','5057657670','SarahG@email.com'),
        	(3,'925  College Street','Atlanta','4043278560','Georgie@email.com');
 
 CREATE TABLE orders (
@@ -76,8 +76,8 @@ INNER JOIN orders o USING (customer_id);
 -- There is  suspision that some orders were wrongly inserted more times. Check if there are any duplicated orders. If so, return duplicates with the following details:
 -- first name, last name, email, order id and item
 SELECT 
-	last_name AS first_name, 
-	first_name AS last_name, 
+    last_name AS first_name, 
+    first_name AS last_name, 
     email, 
     order_id, 
     item
@@ -93,7 +93,7 @@ HAVING COUNT(*)>1;
 -- Does not show duplicates.
 -- Order result by customer last name
 SELECT 
-	DISTINCT last_name AS first_name,
+    DISTINCT last_name AS first_name,
     first_name AS last_name, 
     email, 
     order_id, 
@@ -111,8 +111,8 @@ ORDER BY last_name;
 --Write query which shows only three columns: full_name (first and last name divided by space), order_id and order_size
 --Make sure the duplicated values are not shown
 SELECT 
-	DISTINCT last_name || " " || first_name AS full_name,
-	order_id, 
+    DISTINCT last_name || " " || first_name AS full_name,
+    order_id, 
     CASE --- order_currency in eur
     	WHEN order_value <= 25 THEN 'SMALL'
     	WHEN order_value > 25 AND order_value <= 100 THEN 'MEDIUM'
@@ -132,7 +132,7 @@ WHERE item NOT LIKE '%ea%' AND item NOT LIKE 'Key%'; --- not very efficient with
 -- Please find out if some customer was referred by already existing customer
 -- Return results in following format "Customer Last name Customer First name" "Last name First name of customer who recomended the new customer"
 SELECT 
-	c1.first_name || " " || c1.last_name AS customer_full_name,
+    c1.first_name || " " || c1.last_name AS customer_full_name,
     c2.first_name || " " || c2.last_name AS referred_by_full_name
 FROM customers c1
 INNER JOIN customers c2 ON c1.referred_by_id = c2.customer_id;
