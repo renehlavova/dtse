@@ -1,3 +1,3 @@
 # sql
 
-Repository for sql code, or tasks, and tips.
+Repository for sql code, tasks, and tips.
