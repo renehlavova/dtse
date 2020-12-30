@@ -32,7 +32,7 @@ INNER JOIN "DTAG_DEV_CSBI_CELONIS_DATA"."dtag.dev.csbi.celonis.data.elog::V_BKPF
 -- with same column names, we can use "join using (column1, column2, ...)", column will appear only once in the result set
 -- the foreign keys should be defined
 -- however, additional conditions would need to be moved to "where clause" after joins, i.e. where rseg.mandt in ('200')
--- it's better to filter the table immediately when joining larger data, not afterwards in where clause, so depends on the condition
+-- it's better to filter the table immediately when joining larger data, not afterwards in where clause, so depends on the condition and data
 -- sometimes it's better to define the conditions in a where clause for better readibility
     AND RSEG.ZSYSNAME = BKPF.ZSYSNAME --- x
     AND BKPF.AWKEY = RSEG.AWKEY --- using (awkey, zsysname) 
