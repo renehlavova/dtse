@@ -4,16 +4,16 @@
 --- Do not worry if the tables/columns are not familiar to you 
 ----   -> you do not need to interpret the result (in fact the query does not reflect actual DB content)
 SELECT 
-	RSEG.EBELN,
-	RSEG.EBELP,
+    RSEG.EBELN,
+    RSEG.EBELP,
     RSEG.BELNR,
     RSEG.AUGBL AS AUGBL_W,
     LPAD(EKPO.BSART,6,0) as BSART,
-	BKPF.GJAHR,
-	BSEG.BUKRS,
-	BSEG.BUZEI,
-	BSEG.BSCHL,
-	BSEG.SHKZG,
+    BKPF.GJAHR,
+    BSEG.BUKRS,
+    BSEG.BUZEI,
+    BSEG.BSCHL,
+    BSEG.SHKZG,
     CASE WHEN BSEG.SHKZG = 'H' THEN (-1) * BSEG.DMBTR ELSE BSEG.DMBTR END AS DMBTR,
     COALESCE(BSEG.AUFNR, 'Kein SM-A Zuordnung') AS AUFNR,
     COALESCE(LFA1.LAND1, 'Andere') AS LAND1, 
