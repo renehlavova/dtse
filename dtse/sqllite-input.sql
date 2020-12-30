@@ -118,9 +118,8 @@ SELECT
     	WHEN order_value > 25 AND order_value <= 100 THEN 'MEDIUM'
     	WHEN order_value > 100 THEN 'BIG'
     END AS order_size
-FROM customers cu 
-INNER JOIN contacts co USING (customer_id)
-INNER JOIN orders o USING (customer_id); 
+FROM orders o  
+INNER JOIN customers cu USING (customer_id);
 
 --TASK 5--
 -- Filter out all items from orders table which containt in their name 'ea' or start with 'Key'
