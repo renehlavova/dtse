@@ -1,3 +1,3 @@
-# Knowledge base
+# DTSE
 
-Repository for helpful functions and templates for analysis, mix of python and sql, that I might find helpful to reuse in the future. 
+Interview task prepared for Deutsche Telekom Services Europe (DTSE) in December 2020.
